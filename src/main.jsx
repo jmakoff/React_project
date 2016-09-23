@@ -1,6 +1,7 @@
 'use strict'
 var React = require('react');
 var ReactDom = require('react-dom');
+
 var Slider = require('react-slick');
 
 var ReactSlick = React.createClass({ //slider
@@ -33,6 +34,26 @@ var ReactSlick = React.createClass({ //slider
         )
     }
 })
+ReactDom.render(<ReactSlick/>, document.getElementById('first-block'));
+/*carousel*/
+
+// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+var router = require('react-router');
+
+var Router = router.Router;
+var Route = router.Route;
+var Link = router.Link;
+var IndexRoute = router.IndexRoute;
+var hashHistory = router.hashHistory;
+//imoprt views
+var WebDesign = require('./jsx/services/webdesign.jsx');
 
 
-ReactDom.render(<ReactSlick/>, document.getElementById('first-block'));/*carousel*/
+ReactDOM.render(<Router history={hashHistory}>
+
+        <Route path="/webDesign" component={WebDesign}/>
+</Router>, document.getElementById('serv_text'));
+
+
+
+
