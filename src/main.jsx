@@ -1,6 +1,6 @@
 'use strict'
 var React = require('react');
-var ReactDom = require('react-dom');
+var ReactDOM = require('react-dom');
 
 var Slider = require('react-slick');
 
@@ -34,10 +34,11 @@ var ReactSlick = React.createClass({ //slider
         )
     }
 })
-ReactDom.render(<ReactSlick/>, document.getElementById('first-block'));
+ReactDOM.render(<ReactSlick/>, document.getElementById('first-block'));
 /*carousel*/
 
 // импорт необходимых для настройки маршрутизации объектов из модуля react-router
+//routing block start
 var router = require('react-router');
 
 var Router = router.Router;
@@ -47,13 +48,53 @@ var IndexRoute = router.IndexRoute;
 var hashHistory = router.hashHistory;
 //imoprt views
 var WebDesign = require('./jsx/services/webdesign.jsx');
+var GrDesign = require('./jsx/services/grDesign.jsx');
+var OnlineSupport = require('./jsx/services/onlineSuport.jsx');
+var AppDesign = require('./jsx/services/appDesign.jsx');
+var SeoService = require('./jsx/services/SeoService.jsx');
+var OnlineMarketing = require('./jsx/services/onlineMarketing.jsx')
 
 
+class Services extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className="btn-group btn-group-justified" id="buttons_serv">
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="webDesign"> Web Design</Link></a>
+                    </div>
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="grDesign"> Graphic Design</Link></a>
+                    </div>
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="onlineSupport">Online Support</Link></a>
+                    </div>
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="appDesign"> App Design</Link></a>
+                    </div>
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="onlineMarketing"> Online Marketing</Link></a>
+                    </div>
+                    <div className="btn-group">
+                        <a className=" btn btn-default"><Link to="seoService"> Seo Service</Link></a>
+                    </div>
+                </div>
+                <div id="serv_text">{this.props.children}</div>
+            </div>
+        )
+    }
+}
 ReactDOM.render(<Router history={hashHistory}>
-
-        <Route path="#/webDesign" component={WebDesign}/>
-</Router>, document.getElementById('serv_text'));
-
+    <Route path="/" component={Services}>
+        <Route path="webDesign" component={WebDesign}/>
+        <Route path="grDesign" component={GrDesign}/>
+        <Route path="onlineSupport" component={OnlineSupport}/>
+        <Route path="appDesign" component={AppDesign}/>
+        <Route path="onlineMarketing" component={OnlineMarketing}/>
+        <Route path="seoService" component={SeoService}/>
+    </Route>
+</Router>, document.getElementById('block_serv'));
+//end of routing block
 
 
 

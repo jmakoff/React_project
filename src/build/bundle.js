@@ -46,8 +46,16 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(1);
-	var ReactDom = __webpack_require__(34);
+	var ReactDOM = __webpack_require__(34);
 
 	var Slider = __webpack_require__(172);
 
@@ -75,7 +83,7 @@
 	        );
 	    }
 	});
-	ReactDom.render(React.createElement(ReactSlick, null), document.getElementById('first-block'));
+	ReactDOM.render(React.createElement(ReactSlick, null), document.getElementById('first-block'));
 	/*carousel*/
 
 	// импорт необходимых для настройки маршрутизации объектов из модуля react-router
@@ -88,12 +96,136 @@
 	var hashHistory = router.hashHistory;
 	//imoprt views
 	var WebDesign = __webpack_require__(252);
+	var GrDesign = __webpack_require__(253);
+	var OnlineSupport = __webpack_require__(254);
+	var AppDesign = __webpack_require__(255);
+	var SeoService = __webpack_require__(256);
+	var OnlineMarketing = __webpack_require__(257);
+
+	var Services = function (_React$Component) {
+	    _inherits(Services, _React$Component);
+
+	    function Services() {
+	        _classCallCheck(this, Services);
+
+	        return _possibleConstructorReturn(this, (Services.__proto__ || Object.getPrototypeOf(Services)).apply(this, arguments));
+	    }
+
+	    _createClass(Services, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                null,
+	                React.createElement(
+	                    'div',
+	                    { className: 'btn-group btn-group-justified', id: 'buttons_serv' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'webDesign' },
+	                                ' Web Design'
+	                            )
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'grDesign' },
+	                                ' Graphic Design'
+	                            )
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'onlineSupport' },
+	                                'Online Support'
+	                            )
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'appDesign' },
+	                                ' App Design'
+	                            )
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'onlineMarketing' },
+	                                ' Online Marketing'
+	                            )
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'btn-group' },
+	                        React.createElement(
+	                            'a',
+	                            { className: ' btn btn-default' },
+	                            React.createElement(
+	                                Link,
+	                                { to: 'seoService' },
+	                                ' Seo Service'
+	                            )
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { id: 'serv_text' },
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Services;
+	}(React.Component);
 
 	ReactDOM.render(React.createElement(
 	    Router,
 	    { history: hashHistory },
-	    React.createElement(Route, { path: '#/webDesign', component: WebDesign })
-	), document.getElementById('serv_text'));
+	    React.createElement(
+	        Route,
+	        { path: '/', component: Services },
+	        React.createElement(Route, { path: 'webDesign', component: WebDesign }),
+	        React.createElement(Route, { path: 'grDesign', component: GrDesign }),
+	        React.createElement(Route, { path: 'onlineSupport', component: OnlineSupport }),
+	        React.createElement(Route, { path: 'appDesign', component: AppDesign }),
+	        React.createElement(Route, { path: 'onlineMarketing', component: OnlineMarketing }),
+	        React.createElement(Route, { path: 'seoService', component: SeoService })
+	    )
+	), document.getElementById('block_serv'));
+	//end of routing block
 
 /***/ },
 /* 1 */
@@ -29348,7 +29480,7 @@
 	                React.createElement("div", { className: "srvImg", id: "webDes" }),
 	                React.createElement(
 	                    "div",
-	                    { "class": "servText" },
+	                    { className: "servText" },
 	                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium ad, architecto ducimus enim exercitationem expedita facilis ipsam ipsum, itaque minus officia officiis omnis placeat qui reiciendis sapiente, ullam voluptatum?"
 	                )
 	            );
@@ -29359,6 +29491,246 @@
 	}(React.Component);
 
 	module.exports = WebDesign;
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var GrDesign = function (_React$Component) {
+	    _inherits(GrDesign, _React$Component);
+
+	    function GrDesign() {
+	        _classCallCheck(this, GrDesign);
+
+	        return _possibleConstructorReturn(this, (GrDesign.__proto__ || Object.getPrototypeOf(GrDesign)).apply(this, arguments));
+	    }
+
+	    _createClass(GrDesign, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement("div", { className: "srvImg", id: "grDes" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "servText" },
+	                    "Put here something about graphic design"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return GrDesign;
+	}(React.Component);
+
+	module.exports = GrDesign;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var OnlineSupport = function (_React$Component) {
+	    _inherits(OnlineSupport, _React$Component);
+
+	    function OnlineSupport() {
+	        _classCallCheck(this, OnlineSupport);
+
+	        return _possibleConstructorReturn(this, (OnlineSupport.__proto__ || Object.getPrototypeOf(OnlineSupport)).apply(this, arguments));
+	    }
+
+	    _createClass(OnlineSupport, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement("div", { className: "srvImg", id: "onlineSup" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "servText" },
+	                    "Put here some information about online support"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return OnlineSupport;
+	}(React.Component);
+
+	module.exports = OnlineSupport;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var AppDesign = function (_React$Component) {
+	    _inherits(AppDesign, _React$Component);
+
+	    function AppDesign() {
+	        _classCallCheck(this, AppDesign);
+
+	        return _possibleConstructorReturn(this, (AppDesign.__proto__ || Object.getPrototypeOf(AppDesign)).apply(this, arguments));
+	    }
+
+	    _createClass(AppDesign, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "servText" },
+	                    React.createElement(
+	                        "h5",
+	                        null,
+	                        "Design of applications"
+	                    ),
+	                    "Put here some information about designing of applications"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AppDesign;
+	}(React.Component);
+
+	module.exports = AppDesign;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var SeoService = function (_React$Component) {
+	    _inherits(SeoService, _React$Component);
+
+	    function SeoService() {
+	        _classCallCheck(this, SeoService);
+
+	        return _possibleConstructorReturn(this, (SeoService.__proto__ || Object.getPrototypeOf(SeoService)).apply(this, arguments));
+	    }
+
+	    _createClass(SeoService, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "servText" },
+	                    React.createElement(
+	                        "h5",
+	                        null,
+	                        "Seo Service"
+	                    ),
+	                    "Put here some information about Seo Service"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return SeoService;
+	}(React.Component);
+
+	module.exports = SeoService;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var OnlineMarketing = function (_React$Component) {
+	    _inherits(OnlineMarketing, _React$Component);
+
+	    function OnlineMarketing() {
+	        _classCallCheck(this, OnlineMarketing);
+
+	        return _possibleConstructorReturn(this, (OnlineMarketing.__proto__ || Object.getPrototypeOf(OnlineMarketing)).apply(this, arguments));
+	    }
+
+	    _createClass(OnlineMarketing, [{
+	        key: "render",
+	        value: function render() {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "servText" },
+	                    "Put here some information about Online Marketing"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return OnlineMarketing;
+	}(React.Component);
+
+	module.exports = OnlineMarketing;
 
 /***/ }
 /******/ ]);
