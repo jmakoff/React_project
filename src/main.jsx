@@ -51,7 +51,7 @@ var WebDesign = require('./jsx/services/webdesign.jsx');
 
 ReactDOM.render(<Router history={hashHistory}>
 
-        <Route path="/webDesign" component={WebDesign}/>
+        <Route path="#/webDesign" component={WebDesign}/>
 </Router>, document.getElementById('serv_text'));
 
 

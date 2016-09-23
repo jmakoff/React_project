@@ -92,7 +92,7 @@
 	ReactDOM.render(React.createElement(
 	    Router,
 	    { history: hashHistory },
-	    React.createElement(Route, { path: '/webDesign', component: WebDesign })
+	    React.createElement(Route, { path: '#/webDesign', component: WebDesign })
 	), document.getElementById('serv_text'));
 
 /***/ },
