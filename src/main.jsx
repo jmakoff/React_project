@@ -51,7 +51,7 @@ var WebDesign = require('./jsx/services/webdesign.jsx');
 var GrDesign = require('./jsx/services/grDesign.jsx');
 var OnlineSupport = require('./jsx/services/onlineSuport.jsx');
 var AppDesign = require('./jsx/services/appDesign.jsx');
-var SeoService = require('./jsx/services/SeoService.jsx');
+var SeoService =require('./jsx/services/seoService.jsx');
 var OnlineMarketing = require('./jsx/services/onlineMarketing.jsx')
 
 
@@ -61,22 +61,22 @@ class Services extends React.Component {
             <div>
                 <div className="btn-group btn-group-justified" id="buttons_serv">
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="webDesign"> Web Design</Link></a>
+                        <Link to="webDesign"> <button className=" btn btn-default"> Web Design</button></Link>
                     </div>
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="grDesign"> Graphic Design</Link></a>
+                        <Link to="grDesign"> <button className=" btn btn-default"> Graphic Design</button></Link>
                     </div>
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="onlineSupport">Online Support</Link></a>
+                        <Link to="onlineSupport"><button className=" btn btn-default">Online Support</button></Link>
                     </div>
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="appDesign"> App Design</Link></a>
+                        <Link to="appDesign"><button className=" btn btn-default"> App Design</button></Link>
                     </div>
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="onlineMarketing"> Online Marketing</Link></a>
+                        <Link to="onlineMarketing"><button className=" btn btn-default"> Online Marketing</button></Link>
                     </div>
                     <div className="btn-group">
-                        <a className=" btn btn-default"><Link to="seoService"> Seo Service</Link></a>
+                        <Link to="seoService"> <button className=" btn btn-default"> Seo Service</button></Link>
                     </div>
                 </div>
                 <div id="serv_text">{this.props.children}</div>

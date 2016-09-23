@@ -87,6 +87,7 @@
 	/*carousel*/
 
 	// импорт необходимых для настройки маршрутизации объектов из модуля react-router
+	//routing block start
 	var router = __webpack_require__(189);
 
 	var Router = router.Router;
@@ -124,11 +125,12 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'webDesign' },
+	                            ' ',
 	                            React.createElement(
-	                                Link,
-	                                { to: 'webDesign' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                ' Web Design'
 	                            )
 	                        )
@@ -137,11 +139,12 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'grDesign' },
+	                            ' ',
 	                            React.createElement(
-	                                Link,
-	                                { to: 'grDesign' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                ' Graphic Design'
 	                            )
 	                        )
@@ -150,11 +153,11 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'onlineSupport' },
 	                            React.createElement(
-	                                Link,
-	                                { to: 'onlineSupport' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                'Online Support'
 	                            )
 	                        )
@@ -163,11 +166,11 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'appDesign' },
 	                            React.createElement(
-	                                Link,
-	                                { to: 'appDesign' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                ' App Design'
 	                            )
 	                        )
@@ -176,11 +179,11 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'onlineMarketing' },
 	                            React.createElement(
-	                                Link,
-	                                { to: 'onlineMarketing' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                ' Online Marketing'
 	                            )
 	                        )
@@ -189,11 +192,12 @@
 	                        'div',
 	                        { className: 'btn-group' },
 	                        React.createElement(
-	                            'a',
-	                            { className: ' btn btn-default' },
+	                            Link,
+	                            { to: 'seoService' },
+	                            ' ',
 	                            React.createElement(
-	                                Link,
-	                                { to: 'seoService' },
+	                                'button',
+	                                { className: ' btn btn-default' },
 	                                ' Seo Service'
 	                            )
 	                        )
@@ -29477,10 +29481,15 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/000/fff.png&text=dummy+image" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        "Web Design"
+	                    ),
 	                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium ad, architecto ducimus enim exercitationem expedita facilis ipsam ipsum, itaque minus officia officiis omnis placeat qui reiciendis sapiente, ullam voluptatum?"
 	                )
 	            );
@@ -29523,11 +29532,16 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "grDes" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/822682/2bed09.png&text=Graphic+Design" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
-	                    "Put here something about graphic design"
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        "Graphic design"
+	                    ),
+	                    "Put here something about graphic design.Nullam imperdiet augue in bibendum tristique. Aenean volutpat nisi et nulla faucibus, a varius nisi fringilla. Sed commodo felis sagittis, semper lorem ut, gravida tellus. Morbi tortor sem, tincidunt in commodo vitae, maximus at eros."
 	                )
 	            );
 	        }
@@ -29569,11 +29583,16 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "onlineSup" }),
+	                React.createElement("img", { src: "http://placekitten.com/200/300" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
-	                    "Put here some information about online support"
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        "Online Support"
+	                    ),
+	                    "Put here some information about online support. Mauris vitae blandit urna, sed viverra lacus. Donec sit amet auctor ipsum, vitae lobortis tellus. Vivamus ut orci dignissim, dapibus ante id, aliquam lorem"
 	                )
 	            );
 	        }
@@ -29615,16 +29634,16 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/299e87/3311ba.png&text=App+Design+image" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
 	                    React.createElement(
-	                        "h5",
+	                        "h4",
 	                        null,
 	                        "Design of applications"
 	                    ),
-	                    "Put here some information about designing of applications"
+	                    "Put here some information about designing of applications.  Quisque vulputate enim erat, vitae aliquam justo pharetra a. Praesent euismod luctus nibh at cursus. Vestibulum sodales erat enim, ut bibendum diam volutpat vitae"
 	                )
 	            );
 	        }
@@ -29666,16 +29685,16 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/822682/2bed09.png&text=Seo+Service" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
 	                    React.createElement(
-	                        "h5",
+	                        "h4",
 	                        null,
 	                        "Seo Service"
 	                    ),
-	                    "Put here some information about Seo Service"
+	                    "Put here some information about Seo Service.ullam arcu arcu, auctor sit amet ipsum sit amet, congue convallis turpis. Maecenas mollis gravida tellus, et ullamcorper ligula vehicula vitae. Ut feugiat commodo tellus cursus efficitur."
 	                )
 	            );
 	        }
@@ -29717,11 +29736,16 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("div", { className: "srvImg", id: "webDes" }),
+	                React.createElement("img", { src: "http://placekitten.com/200/300" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
-	                    "Put here some information about Online Marketing"
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        "Online Marketing"
+	                    ),
+	                    "Put here some information about Online Marketing Quisque vulputate enim erat, vitae aliquam justo pharetra a. Praesent euismod luctus nibh at cursus. Vestibulum sodales erat enim, ut bibendum diam volutpat vitae"
 	                )
 	            );
 	        }
