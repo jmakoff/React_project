@@ -144,7 +144,7 @@ body {
 }
 
 #serv_block {
-    height: 450px;
+    height: 600px;
 }
 
 #serv_header {
@@ -185,4 +185,29 @@ body {
 }
 .srvImg{
     display: inline-block;
+}
+#about-block{
+height: 550px;
+    background-color: black;
+}
+#about-img{
+
+top: 10%;
+    position: relative;
+}
+#about-text{
+    position: relative;
+    top:-15%;
+    width: 40%;
+    left: 2%;
+
+    height: 80%;
+    display: inline-block;
+}
+#about-header{
+    position: relative;
+    display: block;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
 }

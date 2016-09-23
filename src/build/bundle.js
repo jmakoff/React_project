@@ -230,6 +230,7 @@
 	    )
 	), document.getElementById('block_serv'));
 	//end of routing block
+	//Skills
 
 /***/ },
 /* 1 */

@@ -95,6 +95,8 @@ ReactDOM.render(<Router history={hashHistory}>
     </Route>
 </Router>, document.getElementById('block_serv'));
 //end of routing block
+//Skills
+
 
 
 
