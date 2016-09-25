@@ -318,6 +318,15 @@ ReactDOM.render(
     document.getElementById('header_block_buttons')
 );
 
+import {Link as ScrollLink} from 'react-scroll'
+let scrollOptions = {
+    duration:1000,
+    smooth:true,
+    offset:-100
+};
+ReactDOM.render(<ScrollLink className="footer-btn" to="first-block"{...scrollOptions}><i className="icon icon-arrow-up"/> </ScrollLink>, document.getElementById('btn-foot'))
+ReactDOM.render(<ScrollLink  to="about-block"{...scrollOptions}><button className="btn my-btn">EXPLORE NOW</button> </ScrollLink>, document.getElementById('first-btn'))
+ReactDOM.render(<ScrollLink  to="testimonial"{...scrollOptions}><button className="btn my-btn ">PURCHASE NOW</button> </ScrollLink>, document.getElementById('sec-btn'))
 
 
 

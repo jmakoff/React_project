@@ -35,7 +35,7 @@
     transform: translate(0, -50%);
 
     cursor: pointer;
-    z-index: 10;
+    z-index: 1;
     color: transparent;
     border: none;
     outline: none;
@@ -80,6 +80,7 @@
 .slick-prev
 {
     left: 20%;
+    z-index: 1;
 
 }
 [dir='rtl'] .slick-prev
@@ -124,7 +125,7 @@
 {
     position: absolute;
     bottom: 10%;
-    z-index: 10;
+    z-index: 1;
     display: block;
 
     width: 100%;

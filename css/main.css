@@ -854,3 +854,9 @@ body {
 .footer button .icon {
     line-height: 2.5;
 }
+._btn{
+    background-color: #18cfab;
+}
+.icon-arrow-up{
+    color: white;
+}
