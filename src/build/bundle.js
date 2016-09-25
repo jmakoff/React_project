@@ -127,7 +127,6 @@
 	                        React.createElement(
 	                            Link,
 	                            { to: 'webDesign' },
-	                            ' ',
 	                            React.createElement(
 	                                'button',
 	                                { className: ' btn btn-default' },
@@ -141,7 +140,6 @@
 	                        React.createElement(
 	                            Link,
 	                            { to: 'grDesign' },
-	                            ' ',
 	                            React.createElement(
 	                                'button',
 	                                { className: ' btn btn-default' },
@@ -194,7 +192,6 @@
 	                        React.createElement(
 	                            Link,
 	                            { to: 'seoService' },
-	                            ' ',
 	                            React.createElement(
 	                                'button',
 	                                { className: ' btn btn-default' },
@@ -230,7 +227,245 @@
 	    )
 	), document.getElementById('block_serv'));
 	//end of routing block
-	//Skills
+	/*filter*/
+	var PHOTODATA = [{
+	    id: 1,
+	    category: 'Graphic Design',
+	    imageUrl: 'https://dummyimage.com/400x300/000/fff&text=Graphic+Design'
+	}, {
+	    id: 2,
+	    category: 'Web Design',
+	    imageUrl: 'https://dummyimage.com/400x300/f01111/080808&text=Web+Design'
+	}, {
+	    id: 3,
+	    category: 'Landing Pages',
+	    imageUrl: 'https://dummyimage.com/400x300/522a2a/4cf518&text=Landing+Pages'
+	}, {
+	    id: 4,
+	    category: 'Wordpress',
+	    imageUrl: 'https://dummyimage.com/400x300/665454/03ff20&text=Wordpress'
+	}, {
+	    id: 5,
+	    category: 'Graphic Design',
+	    imageUrl: 'https://dummyimage.com/400x300/000/fff&text=Graphic+Design'
+	}, {
+	    id: 6,
+	    category: 'Landing Pages',
+	    imageUrl: 'https://dummyimage.com/400x300/522a2a/4cf518&text=Landing+Pages'
+	}, {
+	    id: 7,
+	    category: 'Wordpress',
+	    imageUrl: 'https://dummyimage.com/400x300/665454/03ff20&text=Wordpress'
+	}];
+
+	/*Create a component of the filter panel*/
+
+	var FilterPanel = React.createClass({
+	    displayName: 'FilterPanel',
+
+
+	    render: function render() {
+	        return React.createElement(
+	            'a',
+	            { onClick: this.props.onClick },
+	            this.props.category
+	        );
+	    }
+
+	});
+
+	/*
+	 Create a layout component for one photo
+	 */
+
+	var Photo = React.createClass({
+	    displayName: 'Photo',
+
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'photo-container', 'data-category': this.props.category },
+	            React.createElement('img', { src: this.props.imageUrl })
+	        );
+	    }
+
+	});
+
+	/*
+	 Create a final collection of photos in photoGallery
+	 */
+
+	var PhotoGallery = React.createClass({
+	    displayName: 'PhotoGallery',
+
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            displayedCategories: PHOTODATA,
+	            active: false
+	        };
+	    },
+	    toggleActive: function toggleActive() {
+	        this.setState({
+	            active: !this.state.active
+	        });
+	    },
+
+	    selectCategory: function selectCategory(element) {
+	        console.log('element is: ' + element);
+	        var categoryName = element.toLowerCase();
+	        var displayedCategories = PHOTODATA.filter(function (el) {
+
+	            var searchValue = el.category.toLowerCase();
+	            return searchValue.indexOf(categoryName) !== -1;
+	        });
+
+	        this.setState({
+	            displayedCategories: displayedCategories
+
+	        });
+	    },
+	    resetFilter: function resetFilter(element) {
+	        this.setState({
+	            displayedCategories: PHOTODATA
+
+	        });
+	    },
+
+	    render: function render() {
+	        var buttonClass = this.state.active ? 'active' : '';
+	        var categoryToSelect = this.selectCategory;
+	        var getUniqueCategories = [];
+	        PHOTODATA.forEach(function (el) {
+	            if (getUniqueCategories.indexOf(el.category) === -1) getUniqueCategories.push(el.category);
+	        });
+
+	        return React.createElement(
+	            'div',
+	            { className: 'overlay-photogallery' },
+	            React.createElement(
+	                'div',
+	                { className: 'filter-panel' },
+	                React.createElement(
+	                    'a',
+	                    { className: 'resetBtn', onClick: this.resetFilter },
+	                    ' ALL '
+	                ),
+	                getUniqueCategories.map(function (el, i) {
+	                    var boundClick = categoryToSelect.bind(null, el);
+	                    return React.createElement(FilterPanel, { onClick: boundClick, category: el, key: i });
+	                })
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'PhotoGallery center-block' },
+	                this.state.displayedCategories.map(function (el) {
+	                    return React.createElement(Photo, { key: el.id, imageUrl: el.imageUrl, category: el.category });
+	                })
+	            )
+	        );
+	    }
+
+	});
+
+	ReactDOM.render(React.createElement(PhotoGallery, null), document.getElementsByClassName('filter-images')[0]);
+
+	/*react-scroll block*/
+
+	var Scroll = __webpack_require__(258);
+
+	var Element = Scroll.Element;
+	var Events = Scroll.Events;
+	var scroll = Scroll.animateScroll;
+	var scrollSpy = Scroll.scrollSpy;
+
+	var Section = React.createClass({
+	    displayName: 'Section',
+
+	    componentDidMount: function componentDidMount() {
+
+	        Events.scrollEvent.register('begin', function (to, element) {
+	            console.log("begin", arguments);
+	        });
+
+	        Events.scrollEvent.register('end', function (to, element) {
+	            console.log("end", arguments);
+	        });
+
+	        scrollSpy.update();
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        Events.scrollEvent.remove('begin');
+	        Events.scrollEvent.remove('end');
+	    },
+	    scrollToTop: function scrollToTop() {
+	        scroll.scrollToTop();
+	    },
+	    scrollToBottom: function scrollToBottom() {
+	        scroll.scrollToBottom();
+	    },
+	    scrollTo: function scrollTo() {
+	        scroll.scrollTo(100);
+	    },
+	    scrollMore: function scrollMore() {
+	        scroll.scrollMore(100);
+	    },
+	    handleSetActive: function handleSetActive(to) {
+	        console.log(to);
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(0);
+	                    } },
+	                'Home'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(1200);
+	                    } },
+	                'About'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(800);
+	                    } },
+	                'Service'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom' },
+	                'Testimonial'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom' },
+	                'Blog'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(2600);
+	                    } },
+	                'Team'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'btn btn-link btn_custom' },
+	                'Contact'
+	            )
+	        );
+	    }
+	});
+
+	ReactDOM.render(React.createElement(Section, null), document.getElementById('header_block_buttons'));
 
 /***/ },
 /* 1 */
@@ -29756,6 +29991,787 @@
 	}(React.Component);
 
 	module.exports = OnlineMarketing;
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports.Link = __webpack_require__(259);
+	exports.Button = __webpack_require__(268);
+	exports.Element = __webpack_require__(269);
+	exports.Helpers = __webpack_require__(260);
+	exports.scroller = __webpack_require__(267);
+	exports.Events = __webpack_require__(265);
+	exports.scrollSpy = __webpack_require__(266);
+	exports.animateScroll = __webpack_require__(261);
+
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var Helpers = __webpack_require__(260);
+
+	var Link = React.createClass({
+	  render: function () {
+	    return React.DOM.a(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Scroll(Link);
+
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(34);
+
+	var animateScroll = __webpack_require__(261);
+	var scrollSpy = __webpack_require__(266);
+	var defaultScroller = __webpack_require__(267);
+	var assign = __webpack_require__(4);
+
+
+	var protoTypes = {
+	  to: React.PropTypes.string.isRequired,
+	  containerId: React.PropTypes.string,
+	  activeClass:React.PropTypes.string,
+	  spy: React.PropTypes.bool,
+	  smooth: React.PropTypes.bool,
+	  offset: React.PropTypes.number,
+	  delay: React.PropTypes.number,
+	  isDynamic: React.PropTypes.bool,
+	  onClick: React.PropTypes.func,
+	  duration: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.func]),
+	  absolute: React.PropTypes.bool,
+	  onSetActive: React.PropTypes.func
+	};
+
+	var Helpers = {
+
+	  Scroll: function (Component, customScroller) {
+
+	    var scroller = customScroller || defaultScroller;
+
+	    return React.createClass({
+
+	      propTypes: protoTypes,
+
+	      getDefaultProps: function() {
+	        return {offset: 0};
+	      },
+
+	      scrollTo : function(to, props) {
+	          scroller.scrollTo(to, props);
+	      },
+
+	      handleClick: function(event) {
+
+	        /*
+	         * give the posibility to override onClick
+	         */
+
+	        if(this.props.onClick) {
+	          this.props.onClick(event);
+	        }
+
+	        /*
+	         * dont bubble the navigation
+	         */
+
+	        if (event.stopPropagation) event.stopPropagation();
+	        if (event.preventDefault) event.preventDefault();
+
+	        /*
+	         * do the magic!
+	         */
+	        this.scrollTo(this.props.to, this.props);
+
+	      },
+
+	      spyHandler: function(y) {
+	        var element = scroller.get(this.props.to);
+	        if (!element) return;
+	        var cords = element.getBoundingClientRect();
+	        var topBound = cords.top + y;
+	        var bottomBound = topBound + cords.height;
+	        var offsetY = y - this.props.offset;
+	        var to = this.props.to;
+	        var isInside = (offsetY >= topBound && offsetY <= bottomBound);
+	        var isOutside = (offsetY < topBound || offsetY > bottomBound);
+	        var activeLink = scroller.getActiveLink();
+
+	        if (isOutside && activeLink === to) {
+	          scroller.setActiveLink(void 0);
+	          this.setState({ active : false });
+
+	        } else if (isInside && activeLink != to) {
+	          scroller.setActiveLink(to);
+	          this.setState({ active : true });
+
+	          if(this.props.onSetActive) {
+	            this.props.onSetActive(to);
+	          }
+
+	          scrollSpy.updateStates();
+	        }
+	      },
+
+	      componentDidMount: function() {
+
+
+
+	        var containerId = this.props.containerId;
+
+	        var scrollSpyContainer = containerId ? document.getElementById(containerId) : document;
+
+	        if(!scrollSpy.isMounted(scrollSpyContainer)) {
+	          scrollSpy.mount(scrollSpyContainer);
+	        }
+
+
+	        if(this.props.spy) {
+	          var to = this.props.to;
+	          var element = null;
+	          var elemTopBound = 0;
+	          var elemBottomBound = 0;
+
+	          scrollSpy.addStateHandler((function() {
+	            if(scroller.getActiveLink() != to) {
+	                this.setState({ active : false });
+	            }
+	          }).bind(this));
+
+	          var spyHandler = function(y) {
+
+	            var containerTop = 0;
+	            if(scrollSpyContainer.getBoundingClientRect) {
+	              var containerCords = scrollSpyContainer.getBoundingClientRect();
+	              containerTop = containerCords.top;
+	            }
+
+	            if(!element || this.props.isDynamic) {
+	                element = scroller.get(to);
+	                if(!element){ return;}
+
+	                var cords = element.getBoundingClientRect();
+	                elemTopBound = (cords.top - containerTop + y);
+	                elemBottomBound = elemTopBound + cords.height;
+	            }
+
+
+
+	            var offsetY = y - this.props.offset;
+	            var isInside = (offsetY >= Math.floor(elemTopBound) && offsetY <= Math.floor(elemBottomBound));
+	            var isOutside = (offsetY < Math.floor(elemTopBound) || offsetY > Math.floor(elemBottomBound));
+	            var activeLink = scroller.getActiveLink();
+
+	            if (isOutside && activeLink === to) {
+	              scroller.setActiveLink(void 0);
+	              this.setState({ active : false });
+
+	            } else if (isInside && activeLink != to) {
+	              scroller.setActiveLink(to);
+	              this.setState({ active : true });
+
+	              if(this.props.onSetActive) {
+	                this.props.onSetActive(to);
+	              }
+
+	              scrollSpy.updateStates();
+
+	            }
+	          }.bind(this);
+
+	          scrollSpy.addSpyHandler(spyHandler, scrollSpyContainer);
+	        }
+	      },
+	      componentWillUnmount: function() {
+	        scrollSpy.unmount();
+	      },
+	      render: function() {
+
+	        var className = "";
+	        if(this.state && this.state.active) {
+	          className = ((this.props.className || "") + " " + (this.props.activeClass || "active")).trim();
+	        } else {
+	          className = this.props.className;
+	        }
+
+	        var props = assign({}, this.props);
+
+	        for(var prop in protoTypes) {
+	          if(props.hasOwnProperty(prop)) {
+	            delete props[prop];
+	          }
+	        }
+
+	        props.className = className;
+	        props.onClick = this.handleClick;
+
+	        return React.createElement(Component, props);
+	      }
+	    });
+	  },
+
+
+	  Element: function(Component) {
+	    return React.createClass({
+	      propTypes: {
+	        name: React.PropTypes.string.isRequired
+	      },
+	      componentDidMount: function() {
+	        var domNode = ReactDOM.findDOMNode(this);
+	        defaultScroller.register(this.props.name, domNode);
+	      },
+	      componentWillUnmount: function() {
+	        defaultScroller.unregister(this.props.name);
+	      },
+	      render: function() {
+	        return React.createElement(Component, this.props);
+	      }
+	    });
+	  }
+	};
+
+	module.exports = Helpers;
+
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var assign = __webpack_require__(4);
+
+	var smooth = __webpack_require__(262);
+
+	var easing = smooth.defaultEasing;
+
+	var cancelEvents = __webpack_require__(263);
+
+	var events = __webpack_require__(265);
+
+	/*
+	 * Function helper
+	 */
+	var functionWrapper = function(value) {
+	  return typeof value === 'function' ? value : function() { return value; };
+	};
+
+	/*
+	 * Sets the cancel trigger
+	 */
+
+	cancelEvents.register(function() {
+	  __cancel = true;
+	});
+
+	/*
+	 * Wraps window properties to allow server side rendering
+	 */
+	var currentWindowProperties = function() {
+	  if (typeof window !== 'undefined') {
+	    return window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+	  }
+	};
+
+	/*
+	 * Helper function to never extend 60fps on the webpage.
+	 */
+	var requestAnimationFrameHelper = (function () {
+	  return  currentWindowProperties() ||
+	          function (callback, element, delay) {
+	              window.setTimeout(callback, delay || (1000/60), new Date().getTime());
+	          };
+	})();
+
+
+	var __currentPositionY  = 0;
+	var __startPositionY    = 0;
+	var __targetPositionY   = 0;
+	var __progress          = 0;
+	var __duration          = 0;
+	var __cancel            = false;
+
+	var __target;
+	var __containerElement;
+	var __to;
+	var __start;
+	var __deltaTop;
+	var __percent;
+	var __delayTimeout;
+
+
+	var currentPositionY = function() {
+	  if (__containerElement) {
+	        return __containerElement.scrollTop;
+		} else {
+	    var supportPageOffset = window.pageXOffset !== undefined;
+	    var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+	    return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+	           document.documentElement.scrollTop : document.body.scrollTop;
+	   }
+	};
+
+	var scrollContainerHeight = function() {
+	  if(__containerElement) {
+	    return Math.max(
+	      __containerElement.scrollHeight,
+	      __containerElement.offsetHeight,
+	      __containerElement.clientHeight
+	    );
+	  } else {
+	    var body = document.body;
+	    var html = document.documentElement;
+
+	    return Math.max(
+	      body.scrollHeight,
+	      body.offsetHeight,
+	      html.clientHeight,
+	      html.scrollHeight,
+	      html.offsetHeight
+	    );
+	  }
+	};
+
+	var animateTopScroll = function(timestamp) {
+	  // Cancel on specific events
+	  if(__cancel) { return };
+
+	  __deltaTop = Math.round(__targetPositionY - __startPositionY);
+
+	  if (__start === null) {
+	    __start = timestamp;
+	  }
+
+	  __progress = timestamp - __start;
+
+	  __percent = (__progress >= __duration ? 1 : easing(__progress/__duration));
+
+	  __currentPositionY = __startPositionY + Math.ceil(__deltaTop * __percent);
+
+	  if(__containerElement) {
+	    __containerElement.scrollTop = __currentPositionY;
+	  } else {
+	    window.scrollTo(0, __currentPositionY);
+	  }
+
+	  if(__percent < 1) {
+	    requestAnimationFrameHelper.call(window, animateTopScroll);
+	    return;
+	  }
+
+	  if(events.registered['end']) {
+	    events.registered['end'](__to, __target, __currentPositionY);
+	  }
+
+	};
+
+	var setContainer = function (options) {
+	  if(!options || !options.containerId) {
+	    __containerElement = null;
+	    return;
+	  }
+	  if(!__containerElement) {
+		   __containerElement = document.getElementById(options.containerId);
+	  }
+	};
+
+	var startAnimateTopScroll = function(y, options, to, target) {
+
+	  window.clearTimeout(__delayTimeout);
+
+	  setContainer(options);
+
+
+	  __start           = null;
+	  __cancel          = false;
+	  __startPositionY  = currentPositionY();
+	  __targetPositionY = options.absolute ? y : y + __startPositionY;
+	  __deltaTop        = Math.round(__targetPositionY - __startPositionY);
+
+	  __duration        = functionWrapper(options.duration)(__deltaTop);
+	  __duration        = isNaN(parseFloat(__duration)) ? 1000 : parseFloat(__duration);
+	  __to              = to;
+	  __target          = target;
+
+	  if(options && options.delay > 0) {
+	    __delayTimeout = window.setTimeout(function animate() {
+	      requestAnimationFrameHelper.call(window, animateTopScroll);
+	    }, options.delay);
+	    return;
+	  }
+
+	  requestAnimationFrameHelper.call(window, animateTopScroll);
+
+	};
+
+	var scrollToTop = function (options) {
+	  startAnimateTopScroll(0, assign(options || {}, { absolute : true }));
+	};
+
+	var scrollTo = function (toY, options) {
+	  startAnimateTopScroll(toY, assign(options || {}, { absolute : true }));
+	};
+
+	var scrollToBottom = function(options) {
+	  setContainer(options);
+	  startAnimateTopScroll(scrollContainerHeight(), assign(options || {}, { absolute : true }));
+	};
+
+	var scrollMore = function(toY, options) {
+	  setContainer(options);
+	  startAnimateTopScroll(currentPositionY() + toY, assign(options || {}, { absolute : true }));
+	};
+
+	module.exports = {
+	  animateTopScroll: startAnimateTopScroll,
+	  scrollToTop: scrollToTop,
+	  scrollToBottom: scrollToBottom,
+	  scrollTo: scrollTo,
+	  scrollMore: scrollMore,
+	};
+
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	 /*
+	  * https://github.com/oblador/angular-scroll (duScrollDefaultEasing)
+	  */
+	  defaultEasing : function (x) {
+	    'use strict';
+
+	    if(x < 0.5) {
+	      return Math.pow(x*2, 2)/2;
+	    }
+	    return 1-Math.pow((1-x)*2, 2)/2;
+	  }
+	}
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var addPassiveEventListener = __webpack_require__(264);
+
+	var events = ['mousedown', 'mousewheel', 'touchmove', 'keydown']
+
+	module.exports = {
+		register : function(cancelEvent) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			for(var i = 0; i < events.length; i = i + 1) {
+				addPassiveEventListener(document, events[i], cancelEvent);
+			}
+		}
+	};
+
+
+/***/ },
+/* 264 */
+/***/ function(module, exports) {
+
+	/*
+	 * Tell the browser that the event listener won't prevent a scroll.
+	 * Allowing the browser to continue scrolling without having to
+	 * to wait for the listener to return.
+	 */
+	var addPassiveEventListener = function(target, eventName, listener) {
+	    var supportsPassiveOption = (function(){
+	        var supportsPassiveOption = false;
+	        try {
+	            var opts = Object.defineProperty({}, 'passive', {
+	                get: function() {
+	                    supportsPassiveOption = true;
+	                }
+	            });
+	            window.addEventListener('test', null, opts);
+	        } catch (e) {}
+	        return supportsPassiveOption;
+	    })();
+
+	    target.addEventListener(eventName, listener, supportsPassiveOption ? {passive: true} : false);
+	};
+
+	module.exports = addPassiveEventListener;
+
+
+/***/ },
+/* 265 */
+/***/ function(module, exports) {
+
+	
+	var Events = {
+		registered : {},
+		scrollEvent : {
+			register: function(evtName, callback) {
+				Events.registered[evtName] = callback;
+			},
+			remove: function(evtName) {
+				Events.registered[evtName] = null;
+			}
+		}
+	};
+
+	module.exports = Events;
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var addPassiveEventListener = __webpack_require__(264);
+
+	var eventThrottler = function(eventHandler) {
+	  var eventHandlerTimeout;
+	  return function(event) {
+	    // ignore events as long as an eventHandler execution is in the queue
+	    if ( !eventHandlerTimeout ) {
+	      eventHandlerTimeout = setTimeout(function() {
+	        eventHandlerTimeout = null;
+	        eventHandler(event);
+	        // The eventHandler will execute at a rate of 15fps
+	      }, 66);
+	    }
+	  };
+	};
+
+	var scrollSpy = {
+
+	  spyCallbacks: [],
+	  spySetState: [],
+	  scrollSpyContainers: [],
+
+	  mount: function (scrollSpyContainer) {
+	    var t = this;
+	    if (scrollSpyContainer) {
+	      var eventHandler = eventThrottler(function(event) {
+	        t.scrollHandler(scrollSpyContainer);
+	      });
+	      this.scrollSpyContainers.push(scrollSpyContainer);
+	      addPassiveEventListener(scrollSpyContainer, 'scroll', eventHandler);
+	    }
+	  },
+
+	  isMounted: function (scrollSpyContainer) {
+	    return this.scrollSpyContainers.indexOf(scrollSpyContainer) !== -1;
+	  },
+
+	  currentPositionY: function (scrollSpyContainer) {
+	    if(scrollSpyContainer === document) {
+	      var supportPageOffset = window.pageXOffset !== undefined;
+	      var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+	      return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+	      document.documentElement.scrollTop : document.body.scrollTop;
+	    } else {
+	      return scrollSpyContainer.scrollTop;
+	    }
+	  },
+
+	  scrollHandler: function (scrollSpyContainer) {
+	    var callbacks = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)].spyCallbacks;
+	    if (callbacks) {
+	      for(var i = 0; i < callbacks.length; i++) {
+	        var position =this.currentPositionY(scrollSpyContainer);
+	        callbacks[i](this.currentPositionY(scrollSpyContainer));
+	      }
+	    }
+	  },
+
+	  addStateHandler: function(handler){
+	    this.spySetState.push(handler);
+	  },
+
+	  addSpyHandler: function(handler, scrollSpyContainer) {
+	    var container = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)];
+	    if(!container.spyCallbacks) {
+	      container.spyCallbacks = [];
+	    }
+	    container.spyCallbacks.push(handler);
+	  },
+
+	  updateStates: function(){
+	    var length = this.spySetState.length;
+
+	    for(var i = 0; i < length; i++) {
+	      this.spySetState[i]();
+	    }
+	  },
+
+	  unmount: function () {
+	    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+	      this.scrollSpyContainers[i].spyCallbacks = [];
+	    }
+	    this.spySetState = [];
+
+	    document.removeEventListener('scroll', this.scrollHandler);
+	  },
+
+	  update: function() {
+	    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+	      this.scrollHandler(this.scrollSpyContainers[i]);
+	    }
+	  }
+	}
+
+	module.exports = scrollSpy;
+
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var assign = __webpack_require__(4);
+
+	var animateScroll = __webpack_require__(261);
+	var events = __webpack_require__(265);
+
+	var __mapped = {};
+	var __activeLink;
+
+	module.exports = {
+
+	  unmount: function() {
+	    __mapped = {};
+	  },
+
+	  register: function(name, element){
+	    __mapped[name] = element;
+	  },
+
+	  unregister: function(name) {
+	    delete __mapped[name];
+	  },
+
+	  get: function(name) {
+	    return __mapped[name] || document.getElementById(name);
+	  },
+
+	  setActiveLink: function(link) {
+	    __activeLink = link;
+	  },
+
+	  getActiveLink: function() {
+	    return __activeLink;
+	  },
+
+	  scrollTo: function(to, props) {
+
+	     /*
+	     * get the mapped DOM element
+	     */
+
+	      var target = this.get(to);
+
+	      if(!target) {
+	        console.warn("target Element not found");
+	        return;
+	      }
+
+	      props = assign({}, props, { absolute : false });
+
+
+	      if(events.registered['begin']) {
+	        events.registered['begin'](to, target);
+	      }
+
+	      var containerId = props.containerId;
+	      var containerElement = containerId ? document.getElementById(containerId) : null;
+
+	      var scrollOffset;
+
+	      if(containerId && containerElement) {
+	        props.absolute = true;
+	        if(containerElement !== target.offsetParent) {
+	          if(!containerElement.contains(target)) {
+	            throw new Error('Container with ID ' + containerId + ' is not a parent of target ' + to);
+	          } else {
+	            throw new Error('Container with ID ' + containerId + ' is not a positioned element');
+	          }
+	        }
+
+	        scrollOffset = target.offsetTop;
+	      } else {
+	        var coordinates = target.getBoundingClientRect();
+	        var bodyRect = document.body.getBoundingClientRect();
+	        scrollOffset = coordinates.top;
+	      }
+
+	      scrollOffset += (props.offset || 0);
+
+
+	      /*
+	       * if animate is not provided just scroll into the view
+	       */
+	      if(!props.smooth) {
+	        if(containerId && containerElement) {
+	          containerElement.scrollTop = scrollOffset;
+	        } else {
+	          window.scrollTo(0, scrollOffset);
+	        }
+
+	        if(events.registered['end']) {
+	          events.registered['end'](to, target);
+	        }
+
+	        return;
+	      }
+
+	      /*
+	       * Animate scrolling
+	       */
+
+	      animateScroll.animateTopScroll(scrollOffset, props, to, target);
+	  }
+	};
+
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var Helpers = __webpack_require__(260);
+
+	var Button = React.createClass({
+	  render: function () {
+	    return React.DOM.input(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Scroll(Button);
+
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var Helpers = __webpack_require__(260);
+
+	var Element = React.createClass({
+	  render: function () {
+	    return React.DOM.div(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Element(Element);
+
 
 /***/ }
 /******/ ]);

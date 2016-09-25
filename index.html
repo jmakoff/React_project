@@ -8,6 +8,9 @@
     <title>ReactJS project</title>
     <link href="css/main.css" rel="stylesheet"/>
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icons-font.css">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <link href="http://allfont.ru/allfont.css?fonts=montserrat-light" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
@@ -35,7 +38,7 @@
     <div class="my_icon my_icon_next"></div>
     <div class="my_icon my_icon_prev"></div>
     <div id="buttons">
-        <button class="btn my-btn">EXPLORE NOW</button>
+        <button class="btn my-btn" >EXPLORE NOW</button>
         <button class="btn my-btn" id="sec-btn">PURCHASE NOW</button>
     </div>
 </div>
@@ -52,18 +55,219 @@
         <hr class="my_hr"/>
     </div>
     <div class="center-block" id="block_serv">
-<div id="serv_text"></div>
+        <div id="serv_text"></div>
     </div>
 
 </div>
 <div id="about-block">
     <img class="left" id="about-img" src="https://dummyimage.com/600x400/6eb892/565dcc&text=Our+services"></img>
     <div id="about-text">
-        <div id="about-header"><h2>About Our Company</h2></div>
+        <div id="about-header" class="title"><h2>About Our Company</h2></div>
+        <div class="about-widget" id="about">
+            <ul class="tabs clearfix">
+                <li class="tab" onclick="document.getElementsByClassName('list')[0].classList.toggle('_nodisplay')
+                                            document.getElementsByClassName('diagram')[0].classList.toggle('_nodisplay')">our history
+                </li>
+                <li class="tab" onclick="document.getElementsByClassName('text')[0].classList.toggle('_nodisplay')
+                                            document.getElementsByClassName('diagram')[0].classList.toggle('_nodisplay')">our biography</li>
+                <li class="tab" onclick="document.getElementsByClassName('diagram')[0].classList.remove('_nodisplay')
+                                         document.getElementsByClassName('text')[0].classList.add('_nodisplay')
+                                         document.getElementsByClassName('list')[0].classList.add('_nodisplay')">our skills</li><!-- Bad practice(((-->
+
+
+            </ul>
+            <div class="tabs-content">
+                <div class="list _nodisplay">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incid idunt ut labore et dolore magna aliqua.
+
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopad">
+                            <ul>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopad">
+                            <ul>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                                <li>Excepteur sint occaecat sint.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text _nodisplay">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio
+                        ipsum Suspendisse cursus malesuada facilisis. Nunc con sectetur odio sed dolor
+                        tincidunt porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibu lum nec odio ipsum. Sus pendisse cursus malesua da facilisis.
+                        Vestibulum nec odio ipsum.
+                    </p>
+
+                </div>
+                <div class="diagram">
+                    <div class="diagram-row">
+                        <div id="violet">
+                            <span class="name">user interface</span>
+                        </div>
+                    </div>
+                    <div class="diagram-row">
+                        <div id="blue">
+                            <span class="name">web design</span>
+                        </div>
+                    </div>
+                    <div class="diagram-row">
+                        <div id="peach">
+                            <span class="name">wordpress</span>
+                        </div>
+                    </div>
+                    <div class="diagram-row">
+                        <div id="green">
+                            <span class="name">html&css</span>
+                        </div>
+                    </div>
+                    <div class="diagram-row">
+                        <div id="brown">
+                            <span class="name">app design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    <div class="filter-images"> </div>
+<div class="team">
+    <div class="container">
+        <div class="row">
+            <h4 class="title">meet our team</h4>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="teammate">
+                    <img src="https://dummyimage.com/400x500/000/dfe0eb&text=Founder" alt=""/>
+                    <div class="data-wrapper clearfix">
+                        <div class="teammate-data">
+                            <strong>ai masum</strong><br/>
+                            <span>founder</span>
+                        </div>
+                        <div class="socials">
+                            <i class="fa fa-facebook border-r"></i>
+                            <i class="fa fa-twitter border-r"></i>
+                            <i class="fa fa-skype border-r"></i>
+                            <i class="fa fa-vimeo no-border-r" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="teammate">
+                    <img src="https://dummyimage.com/400x500/000/dfe0eb&text=UX+designer" alt=""/>
+                    <div class="data-wrapper clearfix">
+                        <div class="teammate-data">
+                            <strong>mis liza</strong><br/>
+                            <span>UX designer</span>
+                        </div>
+                        <div class="socials">
+                            <i class="fa fa-facebook border-r"></i>
+                            <i class="fa fa-twitter border-r"></i>
+                            <i class="fa fa-skype border-r"></i>
+                            <i class="fa fa-vimeo no-border-r" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="teammate">
+                    <img src="https://dummyimage.com/400x500/000/dfe0eb&text=Web+Designer" alt=""/>
+                    <div class="data-wrapper clearfix">
+                        <div class="teammate-data">
+                            <strong>hasan mahmud</strong><br/>
+                            <span>Web designer</span>
+                        </div>
+                        <div class="socials">
+                            <i class="fa fa-facebook border-r"></i>
+                            <i class="fa fa-twitter border-r"></i>
+                            <i class="fa fa-skype border-r"></i>
+                            <i class="fa fa-vimeo no-border-r" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="teammate">
+                    <img src="https://dummyimage.com/400x500/000/dfe0eb&text=Web+Designer" alt=""/>
+                    <div class="data-wrapper clearfix">
+                        <div class="teammate-data">
+                            <strong>afifa jannat</strong><br/>
+                            <span>Web designer</span>
+                        </div>
+                        <div class="socials">
+                            <i class="fa fa-facebook border-r"></i>
+                            <i class="fa fa-twitter border-r"></i>
+                            <i class="fa fa-skype border-r"></i>
+                            <i class="fa fa-vimeo no-border-r" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     </div>
-</div>
 
-<script src="src/build/bundle.js"></script>
+<div class="funFacts options">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="option-block dark">
+                    <div class="icon-wrapper ligth-i-wrapper">
+                        <span class="icon icon-case light-icon-back bigger-icons"></span>
+                    </div>
+                    <strong>4609</strong><br>
+                    <span class="descr">works</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="option-block light">
+                    <div class="icon-wrapper ">
+                        <span class="icon icon-user smaller-icons"></span>
+                    </div>
+
+                    <strong>3470</strong><br>
+                    <span class="descr">customers</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="option-block dark" >
+                    <div class="icon-wrapper ligth-i-wrapper">
+                        <span class="icon icon-cart light-icon-back bigger-icons"></span>
+                    </div>
+
+                    <strong>2908</strong><br>
+                    <span class="descr">purchase</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="option-block light">
+                    <div class="icon-wrapper">
+                        <span class="icon icon-map smaller-icons _map-mod"></span>
+                    </div>
+
+                    <strong>1908</strong><br>
+                    <span class="descr">office</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/build/bundle.js"></script>
 </body>
 </html>
