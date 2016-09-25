@@ -98,6 +98,7 @@ class Services extends React.Component {
 }
 ReactDOM.render(<Router history={hashHistory}>
     <Route path="/" component={Services}>
+        <IndexRoute component={WebDesign}/>
         <Route path="webDesign" component={WebDesign}/>
         <Route path="grDesign" component={GrDesign}/>
         <Route path="onlineSupport" component={OnlineSupport}/>

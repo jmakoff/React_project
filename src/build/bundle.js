@@ -218,6 +218,7 @@
 	    React.createElement(
 	        Route,
 	        { path: '/', component: Services },
+	        React.createElement(IndexRoute, { component: WebDesign }),
 	        React.createElement(Route, { path: 'webDesign', component: WebDesign }),
 	        React.createElement(Route, { path: 'grDesign', component: GrDesign }),
 	        React.createElement(Route, { path: 'onlineSupport', component: OnlineSupport }),
