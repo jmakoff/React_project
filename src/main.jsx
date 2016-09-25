@@ -255,58 +255,58 @@ ReactDOM.render(<PhotoGallery />, document.getElementsByClassName('filter-images
 
 /*react-scroll block*/
 
-var Scroll  = require('react-scroll');
+var Scroll = require('react-scroll');
 
 
-var Element    = Scroll.Element;
-var Events     = Scroll.Events;
-var scroll     = Scroll.animateScroll;
-var scrollSpy  = Scroll.scrollSpy;
+var Element = Scroll.Element;
+var Events = Scroll.Events;
+var scroll = Scroll.animateScroll;
+var scrollSpy = Scroll.scrollSpy;
 
 
 var Section = React.createClass({
-    componentDidMount: function() {
+    componentDidMount: function () {
 
-        Events.scrollEvent.register('begin', function(to, element) {
+        Events.scrollEvent.register('begin', function (to, element) {
             console.log("begin", arguments);
         });
 
-        Events.scrollEvent.register('end', function(to, element) {
+        Events.scrollEvent.register('end', function (to, element) {
             console.log("end", arguments);
         });
 
         scrollSpy.update();
 
     },
-    componentWillUnmount: function() {
+    componentWillUnmount: function () {
         Events.scrollEvent.remove('begin');
         Events.scrollEvent.remove('end');
     },
-    scrollToTop: function() {
+    scrollToTop: function () {
         scroll.scrollToTop();
     },
-    scrollToBottom: function() {
+    scrollToBottom: function () {
         scroll.scrollToBottom();
     },
-    scrollTo: function() {
+    scrollTo: function () {
         scroll.scrollTo(100);
     },
-    scrollMore: function() {
+    scrollMore: function () {
         scroll.scrollMore(100);
     },
-    handleSetActive: function(to) {
+    handleSetActive: function (to) {
         console.log(to);
     },
     render: function () {
         return (
             <div>
-                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(0)} >Home</div>
+                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(0)}>Home</div>
                 <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(1200)}>About</div>
                 <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(800)}>Service</div>
-                <div className="btn btn-link btn_custom" >Testimonial</div>
-                <div className="btn btn-link btn_custom">Blog</div>
-                <div className="btn btn-link btn_custom"onClick={() => scroll.scrollTo(2600)}>Team</div>
-                <div className="btn btn-link btn_custom">Contact</div>
+                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(2000)}>Testimonial</div>
+                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(3700)}>Blog</div>
+                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(2600)}>Team</div>
+                <div className="btn btn-link btn_custom" onClick={() => scroll.scrollTo(5500)}>Contact</div>
             </div>
         );
     }
@@ -316,8 +316,6 @@ ReactDOM.render(
     <Section />,
     document.getElementById('header_block_buttons')
 );
-
-
 
 
 

@@ -441,12 +441,16 @@
 	            ),
 	            React.createElement(
 	                'div',
-	                { className: 'btn btn-link btn_custom' },
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(2000);
+	                    } },
 	                'Testimonial'
 	            ),
 	            React.createElement(
 	                'div',
-	                { className: 'btn btn-link btn_custom' },
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(3700);
+	                    } },
 	                'Blog'
 	            ),
 	            React.createElement(
@@ -458,7 +462,9 @@
 	            ),
 	            React.createElement(
 	                'div',
-	                { className: 'btn btn-link btn_custom' },
+	                { className: 'btn btn-link btn_custom', onClick: function onClick() {
+	                        return scroll.scrollTo(5500);
+	                    } },
 	                'Contact'
 	            )
 	        );
