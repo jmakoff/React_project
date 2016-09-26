@@ -446,7 +446,16 @@ class Feedback extends React.Component {
         this.setState({ tasks: this.getAll() })
         cookie.save('massages', this.messages)
     }
-
+    /*ComponentWillMount(){
+        let myCookies = cookie.load('massage')
+        {
+            let messages = myCookies.map((item, index) => {
+                return { title: item.title, text: item.text}
+            });
+            return {messages: messages};
+        }
+    }*/
+//записать в куки получилось, а с выводом-беда
 
 
     render() {

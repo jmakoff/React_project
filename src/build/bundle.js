@@ -671,6 +671,18 @@
 	            this.setState({ tasks: this.getAll() });
 	            _reactCookie2.default.save('massages', this.messages);
 	        }
+	        /*ComponentWillMount(){
+	            let myCookies = cookie.load('massage')
+	            {
+	                let messages = myCookies.map((item, index) => {
+	                    return { title: item.title, text: item.text}
+	                });
+	                return {messages: messages};
+	            }
+	        }*/
+	        //записать в куки получилось, а с выводом-беда
+
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
