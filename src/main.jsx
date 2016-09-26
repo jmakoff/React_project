@@ -336,7 +336,7 @@ ReactDOM.render(<ScrollLink to="testimonial"{...scrollOptions}>
 
 
 //realization of feedback block down
-
+import cookie from 'react-cookie'
 class Message extends React.Component {
     render() {
         return (
@@ -375,14 +375,14 @@ class Feedback extends React.Component {
         this.messages = [
             {
                 id: `${Date.now()}`,
-                title: 'Message Title',
-                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                title: 'First Message',
+                message: ' Please, call me back! (09324029)'
 
             },
             {
                 id: `${Date.now()}` + 1,
-                title: 'Title',
-                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliqua.'
+                title: 'Excellent work',
+                message: 'Best web-site!!!'
 
             }
         ];
@@ -416,6 +416,8 @@ class Feedback extends React.Component {
             this.setState({error: ''});
             this.createNewItem();
         }
+        cookie.save('massages', this.messages)
+
     }
 
     // удалить элемент
@@ -437,9 +439,12 @@ class Feedback extends React.Component {
     // получить все элементы
     getAll() {
         return this.messages
+        let  myCookie = cookies.load('massages')
+        this.messages.push(myCookie)
     }
     updateTasks() {
         this.setState({ tasks: this.getAll() })
+        cookie.save('massages', this.messages)
     }
 
 
@@ -485,6 +490,72 @@ class Feedback extends React.Component {
 
 ReactDOM.render(<Feedback/>, document.getElementById('feedbackBody'));
 
+class Validinp extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            nameError: '',
+            emailError: '',
+            messageError: '',
+            isErrror: false
+        };
+
+        this.nameValid = this.nameValid.bind(this);
+        this.emailValid = this.emailValid.bind(this);
+        this.messageValid = this.messageValid.bind(this);
+    }
+//validation of the Request block down
+
+    nameValid(e){
+        var reg = /^\D+$/;
+        var err = 'Ошибка ввода имени! Допускаются только буквы английского алфавита';
+        if (e.target.value.search(reg) == -1) {
+            this.setState({nameEr: err});
+            return true;
+        } else {
+            this.setState({nameEr: ''});
+            return false;
+        }
+    }
+
+    emailValid(e){
+        var reg = /^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$/;
+        var err = 'Ошибка ввода email! формат: aaa@aaa.aaa';
+        if (e.target.value.search(reg) == -1) {
+            this.setState({emailEr: err});
+            return true;
+        } else {
+            this.setState({emailEr: ''});
+            return false;
+        }
+    }
+
+    messageValid(e){
+        var reg = /^.{20,}$/;
+        var err = 'Ваше сообщение должно содержать более 20 символов';
+        if (e.target.value.search(reg) === -1) {
+            this.setState({messageEr: err});
+            return true;
+        } else {
+            this.setState({messageEr: ''});
+            return false;
+        }
+    }
+    render(){
+        return(
+            <form action="" className="contact-form">
+                <input type="text" placeholder="Name" onChange={this.nameValid}/><br/>
+                <p className="error">{this.state.nameEr}</p>
+                <input type="text" placeholder="Email" onChange={this.emailValid}/><br/>
+                <p className="error">{this.state.emailEr}</p>
+                <textarea name="" id="" rows="8" placeholder="Message" onChange={this.messageValid}></textarea><br/>
+                <p className="error">{this.state.messageEr}</p>
+                <button className="_btn">send request</button>
+            </form>
+        )
+    }
+}
+ReactDOM.render(<Validinp/>,document.getElementById('validForm'))
 
 
 
