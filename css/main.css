@@ -860,3 +860,9 @@ body {
 .icon-arrow-up{
     color: white;
 }
+.error{
+    color: lightcoral;
+    font-weight:bold ;
+    font-size: larger;
+    font-family: "Montserrat", sans-serif;
+}
