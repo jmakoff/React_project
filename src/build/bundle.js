@@ -483,10 +483,12 @@
 	    smooth: true,
 	    offset: -100
 	};
+	//scroll to btn
 	ReactDOM.render(React.createElement(
 	    _reactScroll.Link,
 	    _extends({ className: 'footer-btn', to: 'first-block' }, scrollOptions),
-	    React.createElement('i', { className: 'icon icon-arrow-up' }),
+	    React.createElement('i', {
+	        className: 'icon icon-arrow-up' }),
 	    ' '
 	), document.getElementById('btn-foot'));
 	ReactDOM.render(React.createElement(
@@ -496,8 +498,7 @@
 	        'button',
 	        { className: 'btn my-btn' },
 	        'EXPLORE NOW'
-	    ),
-	    ' '
+	    )
 	), document.getElementById('first-btn'));
 	ReactDOM.render(React.createElement(
 	    _reactScroll.Link,
@@ -506,9 +507,235 @@
 	        'button',
 	        { className: 'btn my-btn ' },
 	        'PURCHASE NOW'
-	    ),
-	    ' '
+	    )
 	), document.getElementById('sec-btn'));
+
+	//realization of feedback block down
+
+	var Message = function (_React$Component2) {
+	    _inherits(Message, _React$Component2);
+
+	    function Message() {
+	        _classCallCheck(this, Message);
+
+	        return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).apply(this, arguments));
+	    }
+
+	    _createClass(Message, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this3 = this;
+
+	            return React.createElement(
+	                'div',
+	                null,
+	                this.props.items.map(function (item) {
+	                    return React.createElement(
+	                        'div',
+	                        { className: 'message', key: item.id },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'mesg-title clearfix' },
+	                            React.createElement(
+	                                'div',
+	                                { className: 'mesg-header' },
+	                                item.title
+	                            ),
+	                            React.createElement(
+	                                'div',
+	                                { className: 'close' },
+	                                React.createElement(
+	                                    'i',
+	                                    { className: 'fa fa-times', 'aria-hidden': 'true', 'data-id': item.id,
+	                                        onClick: _this3.props.removeHandler },
+	                                    ' '
+	                                )
+	                            )
+	                        ),
+	                        React.createElement(
+	                            'div',
+	                            { className: 'mesg-body' },
+	                            item.message
+	                        )
+	                    );
+	                })
+	            );
+	        }
+	    }]);
+
+	    return Message;
+	}(React.Component);
+
+	;
+
+	var Feedback = function (_React$Component3) {
+	    _inherits(Feedback, _React$Component3);
+
+	    function Feedback() {
+	        _classCallCheck(this, Feedback);
+
+	        var _this4 = _possibleConstructorReturn(this, (Feedback.__proto__ || Object.getPrototypeOf(Feedback)).call(this));
+
+	        _this4.state = {
+	            messages: _this4.getAll(),
+	            editHeadings: false,
+	            error: ''
+	        };
+	        _this4.removeItem = _this4.removeItem.bind(_this4);
+
+	        _this4.clickHandler = _this4.clickHandler.bind(_this4);
+	        _this4.messages = [{
+	            id: '' + Date.now(),
+	            title: 'Message Title',
+	            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+
+	        }, {
+	            id: '' + Date.now() + 1,
+	            title: 'Title',
+	            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliqua.'
+
+	        }];
+	        return _this4;
+	    }
+
+	    _createClass(Feedback, [{
+	        key: 'createNewItem',
+	        value: function createNewItem() {
+	            var newItem = {
+	                id: '' + Date.now(),
+	                title: document.getElementById('titleInput').value,
+	                message: document.getElementById('messageInput').value
+	            };
+	            this.messages.push({
+	                id: '' + Date.now(),
+	                title: newItem.title,
+	                message: newItem.message
+	            });
+
+	            // очистим поля после добавления данных
+
+	            document.getElementById('titleInput').value = '';
+	            document.getElementById('messageInput').value = '';
+	        }
+	    }, {
+	        key: 'clickHandler',
+	        value: function clickHandler() {
+	            var title = document.getElementById('titleInput').value;
+	            var message = document.getElementById('messageInput').value;
+	            if (title == '' || message == '') {
+	                this.setState({ error: 'Не все поля заполнены!' });
+	            } else {
+	                this.setState({ error: '' });
+	                this.createNewItem();
+	            }
+	        }
+
+	        // удалить элемент
+
+	    }, {
+	        key: 'removeItem',
+	        value: function removeItem(e) {
+	            var id = e.target.dataset.id;
+	            var newData = [];
+	            for (var i = 0; i < this.messages.length; i++) {
+
+	                if (this.messages[i].id === id) {
+	                    console.log('deleted item id' + this.messages[i].id);
+	                    continue;
+	                }
+	                newData.push(this.messages[i]);
+	            }
+	            this.messages = newData;
+	            this.updateTasks();
+	        }
+
+	        // получить все элементы
+
+	    }, {
+	        key: 'getAll',
+	        value: function getAll() {
+	            return this.messages;
+	        }
+	    }, {
+	        key: 'updateTasks',
+	        value: function updateTasks() {
+	            this.setState({ tasks: this.getAll() });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var remove = this.removeItem.bind(this);
+
+	            return React.createElement(
+	                'div',
+	                null,
+	                React.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'message-container' },
+	                            React.createElement(Message, { items: this.getAll(),
+	                                removeHandler: remove })
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    React.createElement(
+	                        'div',
+	                        {
+	                            className: 'col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1' },
+	                        React.createElement(
+	                            'form',
+	                            { action: '#', className: 'comment-form' },
+	                            React.createElement('input', { type: 'text', placeholder: 'Title', className: 'comment-title', id: 'titleInput' }),
+	                            React.createElement('textarea', { className: 'comment-body', id: 'messageInput', rows: '3',
+	                                placeholder: 'Message' })
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'col-xs-5 col-sm-5 col-md-5 col-lg-5' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'title-wrapper' },
+	                            React.createElement(
+	                                'h4',
+	                                { className: 'form-title' },
+	                                'Leave us a message'
+	                            ),
+	                            React.createElement(
+	                                'button',
+	                                { className: '_btn', onClick: this.clickHandler },
+	                                React.createElement(
+	                                    'i',
+	                                    { className: 'fa fa-plus',
+	                                        'aria-hidden': 'true' },
+	                                    ' '
+	                                ),
+	                                'add comment'
+	                            ),
+	                            React.createElement(
+	                                'p',
+	                                { className: 'error' },
+	                                this.state.error
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Feedback;
+	}(React.Component);
+
+	ReactDOM.render(React.createElement(Feedback, null), document.getElementById('feedbackBody'));
 
 /***/ },
 /* 1 */

@@ -320,16 +320,170 @@ ReactDOM.render(
 
 import {Link as ScrollLink} from 'react-scroll'
 let scrollOptions = {
-    duration:1000,
-    smooth:true,
-    offset:-100
+    duration: 1000,
+    smooth: true,
+    offset: -100
 };
 //scroll to btn
-ReactDOM.render(<ScrollLink className="footer-btn" to="first-block"{...scrollOptions}><i className="icon icon-arrow-up"/> </ScrollLink>, document.getElementById('btn-foot'))
-ReactDOM.render(<ScrollLink  to="about-block"{...scrollOptions}><button className="btn my-btn">EXPLORE NOW</button> </ScrollLink>, document.getElementById('first-btn'))
-ReactDOM.render(<ScrollLink  to="testimonial"{...scrollOptions}><button className="btn my-btn ">PURCHASE NOW</button> </ScrollLink>, document.getElementById('sec-btn'))
+ReactDOM.render(<ScrollLink className="footer-btn" to="first-block"{...scrollOptions}><i
+    className="icon icon-arrow-up"/> </ScrollLink>, document.getElementById('btn-foot'))
+ReactDOM.render(<ScrollLink to="about-block"{...scrollOptions}>
+    <button className="btn my-btn">EXPLORE NOW</button>
+</ScrollLink>, document.getElementById('first-btn'))
+ReactDOM.render(<ScrollLink to="testimonial"{...scrollOptions}>
+    <button className="btn my-btn ">PURCHASE NOW</button>
+</ScrollLink>, document.getElementById('sec-btn'))
 
 
+//realization of feedback block down
+
+class Message extends React.Component {
+    render() {
+        return (
+            <div>
+                {this.props.items.map((item) => {
+                    return <div className="message" key={item.id}>
+                        <div className="mesg-title clearfix">
+                            <div className="mesg-header">{item.title}</div>
+                            <div className="close">
+                                <i className="fa fa-times" aria-hidden="true" data-id={item.id}
+                                   onClick={this.props.removeHandler}> </i>
+                            </div>
+                        </div>
+                        <div className="mesg-body">
+                            {item.message}
+                        </div>
+                    </div>
+                })}
+            </div>
+
+        )
+    }
+}
+;
+class Feedback extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            messages: this.getAll(),
+            editHeadings: false,
+            error: ''
+        }
+        this.removeItem = this.removeItem.bind(this);
+
+        this.clickHandler = this.clickHandler.bind(this);
+        this.messages = [
+            {
+                id: `${Date.now()}`,
+                title: 'Message Title',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+
+            },
+            {
+                id: `${Date.now()}` + 1,
+                title: 'Title',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliqua.'
+
+            }
+        ];
+    }
+
+    createNewItem() {
+        var newItem = {
+            id: `${Date.now()}`,
+            title: document.getElementById('titleInput').value,
+            message: document.getElementById('messageInput').value
+        };
+        this.messages.push({
+            id: `${Date.now()}`,
+            title: newItem.title,
+            message: newItem.message
+        })
+
+        // очистим поля после добавления данных
+
+        document.getElementById('titleInput').value = '';
+        document.getElementById('messageInput').value = '';
+    }
+
+
+    clickHandler() {
+        let title = document.getElementById('titleInput').value;
+        let message = document.getElementById('messageInput').value;
+        if (title == '' || message == '') {
+            this.setState({error: 'Не все поля заполнены!'});
+        } else {
+            this.setState({error: ''});
+            this.createNewItem();
+        }
+    }
+
+    // удалить элемент
+    removeItem(e) {
+        let id = e.target.dataset.id
+        var newData = [];
+        for (var i = 0; i < this.messages.length; i++) {
+
+            if (this.messages[i].id === id) {
+                console.log('deleted item id' + this.messages[i].id);
+                continue;
+            }
+            newData.push(this.messages[i])
+        }
+        this.messages = newData;
+        this.updateTasks()
+    }
+
+    // получить все элементы
+    getAll() {
+        return this.messages
+    }
+    updateTasks() {
+        this.setState({ tasks: this.getAll() })
+    }
+
+
+
+    render() {
+        var remove = this.removeItem.bind(this)
+
+        return (
+            <div>
+                <div className="row">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div className="message-container">
+                            <Message items={this.getAll()}
+                                     removeHandler={remove}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div
+                        className="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <form action="#" className="comment-form">
+                            <input type="text" placeholder="Title" className="comment-title" id="titleInput"/>
+                            <textarea className="comment-body" id="messageInput" rows="3"
+                                      placeholder="Message"></textarea>
+                        </form>
+                    </div>
+                    <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        <div className="title-wrapper">
+                            <h4 className="form-title">Leave us a message</h4>
+                            <button className="_btn" onClick={this.clickHandler}><i className="fa fa-plus"
+                                                                                    aria-hidden="true"> </i>add comment
+                            </button>
+                            <p className="error">{this.state.error}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        )
+    }
+
+}
+
+ReactDOM.render(<Feedback/>, document.getElementById('feedbackBody'));
 
 
 

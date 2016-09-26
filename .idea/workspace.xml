@@ -2,44 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="264e6d52-4cd2-4a37-ac6c-f105589f39d2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/spincrement.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/jquery/src/.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/rnotwhite.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" afterPath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" afterPath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/package.json" afterPath="$PROJECT_DIR$/node_modules/jquery/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/callbacks.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/callbacks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/core.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/access.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/access.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/css.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/data.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/Data.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/data/Data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/effects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/event.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/exports/global.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/exports/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/jquery.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js" afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build/bundle.js" afterPath="$PROJECT_DIR$/src/build/bundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.jsx" afterPath="$PROJECT_DIR$/src/main.jsx" />
     </list>
     <ignored path="untitled.iws" />
@@ -62,7 +27,46 @@
     <favorites_list name="untitled" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="389" column="43" selection-start-line="389" selection-start-column="43" selection-end-line="389" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="444" column="0" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Ignite/003_React/project/requirements.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="533">
+                <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -234,7 +238,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ignite/003_React/lesson_22/Homework/homework_22.md" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ignite/003_React/project/requirements.md" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -351,7 +355,7 @@
       <workItem from="1474704452459" duration="14014000" />
       <workItem from="1474722792955" duration="43542000" />
       <workItem from="1474873660473" duration="2288000" />
-      <workItem from="1474886900151" duration="3525000" />
+      <workItem from="1474886900151" duration="12657000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1474389262117</created>
@@ -486,11 +490,18 @@
       <option name="project" value="LOCAL" />
       <updated>1474833454178</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update">
+      <created>1474891562275</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1474891562275</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128779000" />
+    <option name="totallyTimeSpent" value="137911000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -505,13 +516,13 @@
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20178704" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20178704" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23051947" sideWeight="0.5115413" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.49737436" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23701298" sideWeight="0.48845866" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23701298" sideWeight="0.48845866" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -854,16 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1430">
-          <caret line="266" column="61" selection-start-line="266" selection-start-column="61" selection-end-line="266" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/spincrement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -877,28 +878,6 @@
         <state relative-caret-position="285">
           <caret line="19" column="132" selection-start-line="19" selection-start-column="132" selection-end-line="19" selection-end-column="132" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Ignite/003_React/project/requirements.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="425">
-            <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -936,6 +915,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-225">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="389" column="43" selection-start-line="389" selection-start-column="43" selection-end-line="389" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Ignite/003_React/project/requirements.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="533">
+            <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="444" column="0" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
           <folding />
         </state>
       </provider>
