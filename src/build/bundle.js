@@ -544,7 +544,7 @@
 	                            { className: 'mesg-title clearfix' },
 	                            React.createElement(
 	                                'div',
-	                                { className: 'mesg-header' },
+	                                { className: 'msg-title' },
 	                                item.title
 	                            ),
 	                            React.createElement(
@@ -594,11 +594,6 @@
 	            id: '' + Date.now(),
 	            title: 'First Message',
 	            message: ' Please, call me back! (09324029)'
-
-	        }, {
-	            id: '' + Date.now() + 1,
-	            title: 'Excellent work',
-	            message: 'Best web-site!!!'
 
 	        }];
 	        return _this4;
@@ -655,9 +650,6 @@
 	            this.messages = newData;
 	            this.updateTasks();
 	        }
-
-	        // получить все элементы
-
 	    }, {
 	        key: 'getAll',
 	        value: function getAll() {

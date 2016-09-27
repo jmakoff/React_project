@@ -866,3 +866,7 @@ body {
     font-size: larger;
     font-family: "Montserrat", sans-serif;
 }
+.msg-title{
+    background-color: lightgray;
+    font-size: larger;
+}

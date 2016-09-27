@@ -344,7 +344,7 @@ class Message extends React.Component {
                 {this.props.items.map((item) => {
                     return <div className="message" key={item.id}>
                         <div className="mesg-title clearfix">
-                            <div className="mesg-header">{item.title}</div>
+                            <div className="msg-title">{item.title}</div>
                             <div className="close">
                                 <i className="fa fa-times" aria-hidden="true" data-id={item.id}
                                    onClick={this.props.removeHandler}> </i>
@@ -378,13 +378,8 @@ class Feedback extends React.Component {
                 title: 'First Message',
                 message: ' Please, call me back! (09324029)'
 
-            },
-            {
-                id: `${Date.now()}` + 1,
-                title: 'Excellent work',
-                message: 'Best web-site!!!'
-
             }
+
         ];
     }
 
@@ -436,7 +431,6 @@ class Feedback extends React.Component {
         this.updateTasks()
     }
 
-    // получить все элементы
     getAll() {
         return this.messages
         let  myCookie = cookies.load('massages')
