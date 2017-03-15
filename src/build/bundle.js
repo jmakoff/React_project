@@ -31301,7 +31301,7 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("img", { src: "http://placekitten.com/200/300" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/299e87/3311ba.png&text=Online+Support+image" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
@@ -31454,7 +31454,7 @@
 	            return React.createElement(
 	                "div",
 	                null,
-	                React.createElement("img", { src: "http://placekitten.com/200/300" }),
+	                React.createElement("img", { src: "https://dummyimage.com/200x300/299e87/3311ba.png&text=Online+Marketing+image" }),
 	                React.createElement(
 	                    "div",
 	                    { className: "servText" },
